@@ -1,0 +1,36 @@
+persone.Persona: allievo, docente, segretario
+(mail, nome, cognome, che permettono calcolare il CF)
+
+*****
+Numero di codice fiscale delle persone fisiche:
+tre caratteri alfabetici per il cognome;
+tre caratteri alfabetici per il nome;
+due caratteri numerici per l'anno di nascita;
+un carattere alfabetico per il mese di nascita;
+due caratteri numerici per il giorno di nascita ed il sesso;
+****
+
+
+persone.Allievo: classe, sezione, ha una serie di terne(data, materia, voto(1-10))
+getMediaVoti
+getMediaVotiPerMateria
+
+
+persone.Segretario: orario di lavoro, ufficio
+
+
+persone.Docente: lista materia insegnate, calendario delle lezioni
+
+
+<calendario delle lezioni (Per adesso String) -giorno della sett, facia oraria, classe, materia>
+
+
+
+
+Scuola: arrayList allievi, AL docenti, AL segretari
+stampaClasse(int iClasse, String sSezione)
+(interfaccia da console-menu: inserisci allievo, inserisci docente
+
+--------------------------------------------------
+*file-unico
+SQlite -ambiente
