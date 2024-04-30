@@ -22,7 +22,7 @@ persone.Segretario: orario di lavoro, ufficio
 persone.Docente: lista materia insegnate, calendario delle lezioni
 
 
-<calendario delle lezioni (Per adesso String) -giorno della sett, facia oraria, classe, materia>
+
 
 
 
@@ -30,6 +30,8 @@ persone.Docente: lista materia insegnate, calendario delle lezioni
 Scuola: arrayList allievi, AL docenti, AL segretari
 stampaClasse(int iClasse, String sSezione)
 (interfaccia da console-menu: inserisci allievo, inserisci docente
+
+<calendario delle lezioni (Per adesso String) -giorno della sett, facia oraria, classe, materia>
 
 --------------------------------------------------
 *file-unico

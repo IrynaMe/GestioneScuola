@@ -1,25 +1,26 @@
 package persone;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Persona {
     //(mail, nome, cognome, che permettono calcolare il CF)
-  //  private int id;
+    //  private int id;
     private String nome;
     private String cognome;
     private LocalDate dataNascita;
+    private String luogoNascita;
     private String sesso;
     private String mail;
+    private char[] cf = new char[16];
 
-    public Persona( String cognome, String nome, LocalDate dataNascita, String sesso, String mail) {
+    public Persona(String cognome, String nome, LocalDate dataNascita, String luogoNascita, String sesso, String mail) {
         this.cognome = cognome;
         this.nome = nome;
         this.dataNascita = dataNascita;
+        this.luogoNascita = luogoNascita;
         this.sesso = sesso;
         this.mail = mail;
+        this.cf = calcolaCodiceFiscale();
     }
 
     public String getNome() {
@@ -42,24 +43,16 @@ public class Persona {
         return mail;
     }
 
-    public String calcolaCodiceFiscale() {
+    public String getLuogoNascita() {
+        return luogoNascita;
+    }
 
-        String cognomeCodice = (cognome.length() >= 3) ? cognome.substring(0, 3).toUpperCase() : cognome.toUpperCase();
+    public char[] getCf() {
+        return cf;
+    }
 
-        String nomeCodice = (nome.length() >= 3) ? nome.substring(0, 3).toUpperCase() : nome.toUpperCase();
-        int annoNascita = dataNascita.getYear() % 100; // 2 ultimi numeri dell'anno
-        int meseNascita = dataNascita.getMonthValue();
-        int giornoNascita = dataNascita.getDayOfMonth();
-        String sessoCodice = (sesso.toUpperCase().equals("M")) ? "0" : "1";//0 -m, 1-f
-
-        // CF
-        String codiceFiscale = cognomeCodice + nomeCodice +
-                String.format("%02d", annoNascita) +
-                String.format("%02d", meseNascita) +
-                String.format("%02d", giornoNascita) +
-                sessoCodice;
-
-        return codiceFiscale;
+    public char[] calcolaCodiceFiscale() {
+        return new char[16];
     }
 
     @Override

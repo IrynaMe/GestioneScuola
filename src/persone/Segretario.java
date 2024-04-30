@@ -11,9 +11,9 @@ public class Segretario extends Persona{
     private LocalTime fineLavoro;
     private String ufficio;
 
-    public Segretario(String cognome, String nome, LocalDate dataNascita, String sesso, String mail,
+    public Segretario(String cognome, String nome, LocalDate dataNascita, String luogoNascita, String sesso, String mail,
                       LocalTime inizioLavoro, LocalTime fineLavoro, String ufficio) {
-        super(nome, cognome, dataNascita, sesso, mail);
+        super(nome, cognome, dataNascita, luogoNascita, sesso, mail);
         this.id=++id;
         this.inizioLavoro = inizioLavoro;
         this.fineLavoro = fineLavoro;

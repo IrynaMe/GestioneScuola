@@ -13,8 +13,8 @@ public class Docente extends Persona{
     private List<Calendario> calendario=new ArrayList<>();
 
     //senza calendario
-    public Docente( String cognome,String nome, LocalDate dataNascita, String sesso, String mail) {
-        super(nome, cognome, dataNascita, sesso, mail);
+    public Docente( String cognome,String nome, LocalDate dataNascita, String luogoNascita, String sesso, String mail) {
+        super(nome, cognome, dataNascita, luogoNascita, sesso, mail);
         this.id=++id;
     }
 
@@ -29,6 +29,7 @@ public class Docente extends Persona{
     public List<Calendario> getCalendario() {
         return calendario;
     }
+
 
     private void inserisciVoto(Allievo allievo){
 

@@ -14,9 +14,9 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Scuola {
-    private List<Allievo> allievi=new ArrayList<>();
-    private List<Docente> docenti=new ArrayList<>();
-    private List<Segretario> segretari=new ArrayList<>();
+    private List<Allievo> allievi = new ArrayList<>();
+    private List<Docente> docenti = new ArrayList<>();
+    private List<Segretario> segretari = new ArrayList<>();
 
     public Persona inputDatiPersona() {
         Scanner sc = new Scanner(System.in);
@@ -27,6 +27,7 @@ public class Scuola {
         String cognome;
         String nome;
         String dataNascita;
+        String luogoNascita;
         String sesso;
         String mail;
 
@@ -59,7 +60,14 @@ public class Scuola {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate dataNascitaFormattata = LocalDate.parse(dataNascita, formatter);
-
+        //luogoNascita
+        do {
+            System.out.println("Inserisci Luogo di nascita: almeno 2 caratteri");
+            luogoNascita = sc.nextLine();
+            if (!Pattern.matches(regexCognomeNome, luogoNascita)) {
+                System.out.println("Formato non valido. Inserisci almeno 2 caratteri");
+            }
+        } while (!Pattern.matches(regexCognomeNome, luogoNascita));
         //sesso
         do {
             System.out.println("Inserisci sesso: m oppure f");
@@ -78,7 +86,7 @@ public class Scuola {
             }
         } while (!mail.matches(regexMail));
 
-        return new Persona(cognome, nome, dataNascitaFormattata, sesso, mail);
+        return new Persona(cognome, nome, dataNascitaFormattata, luogoNascita,sesso, mail);
     }
 
     public Allievo inputDatiAllievo() {
@@ -108,7 +116,7 @@ public class Scuola {
                 System.out.println("Formato non valido. Inserisci una lettera da A a Z.");
             }
         } while (!sezione.matches(regexSezione));
-        return new Allievo(persona.getCognome(), persona.getNome(), persona.getDataNascita(), persona.getSesso(), persona.getMail(), iClasse, sezione);
+        return new Allievo(persona.getCognome(), persona.getNome(), persona.getDataNascita(), persona.getLuogoNascita(),persona.getSesso(), persona.getMail(), iClasse, sezione);
     }
 
 
@@ -120,7 +128,7 @@ public class Scuola {
     public Docente inputDatiDocente() {
         Persona persona = inputDatiPersona();
         Scanner sc = new Scanner(System.in);
-        Docente docente = new Docente(persona.getCognome(), persona.getNome(), persona.getDataNascita(), persona.getSesso(), persona.getMail());
+        Docente docente = new Docente(persona.getCognome(), persona.getNome(), persona.getDataNascita(), persona.getLuogoNascita(),persona.getSesso(), persona.getMail());
         return docente;
     }
 
@@ -148,7 +156,7 @@ public class Scuola {
         String regexMateria = "^[a-zA-Z]{2,20}$";
         Docente docente = cercaDocentePerId(id);
 
-        int scelta=-1;
+        int scelta = -1;
         do {
             try {
                 System.out.println("1->Inserisci materia, 0->Torna al menu");
@@ -184,8 +192,9 @@ public class Scuola {
             }
         }
     }
+
     private void stampaDocenti() {
-        for(Docente docente:docenti){
+        for (Docente docente : docenti) {
             System.out.println(docente.toString());
         }
     }

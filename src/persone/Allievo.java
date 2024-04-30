@@ -15,17 +15,17 @@ public class Allievo extends Persona{
     private String sezione;
     List<Voto> voti=new ArrayList<>();
 //senza voti
-    public Allievo( String cognome,String nome, LocalDate dataNascita, String sesso, String mail,
+    public Allievo( String cognome,String nome, LocalDate dataNascita, String luogoNascita, String sesso, String mail,
                    int classe, String sezione) {
-        super(nome, cognome, dataNascita, sesso, mail);
+        super(nome, cognome, dataNascita, luogoNascita, sesso, mail);
         this.id=++id;
         this.classe = classe;
         this.sezione = sezione;
     }
 //con voti
-    public Allievo(String nome, String cognome, LocalDate dataNascita, String sesso, String mail, int classe, String sezione,
+    public Allievo(String nome, String cognome, LocalDate dataNascita, String luogoNascita,String sesso, String mail, int classe, String sezione,
                    List<Voto> voti) {
-        super(nome, cognome, dataNascita, sesso, mail);
+        super(nome, cognome, dataNascita, luogoNascita, sesso, mail);
         this.classe = classe;
         this.sezione = sezione;
         this.voti = voti;
