@@ -58,7 +58,7 @@ public class Scuola {
             }
         } while (!Pattern.matches(regexDataNascita, dataNascita));
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate dataNascitaFormattata = LocalDate.parse(dataNascita, formatter);
         //luogoNascita
         do {

@@ -19,4 +19,7 @@ public class Segretario extends Persona{
         this.fineLavoro = fineLavoro;
         this.ufficio = ufficio;
     }
+    public void cambiaOrarioLavoro(){
+
+    }
 }
